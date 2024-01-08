@@ -1,3 +1,4 @@
+import ClientList from "../components/dashboard/clientList";
 import { ClientRollUpCard } from "../components/dashboard/clientRollUp";
 import Performace from "../components/dashboard/performance";
 
@@ -12,7 +13,7 @@ export default function Dashboard() {
     <div className="flex flex-row gap-3 " style={{maxHeight:'calc(100vh - 140px)'}}>
       <div className="basis-2/3 flex flex-col gap-3">
         <div  style={{height:'50%'}}><Performace/></div>
-        <div style={{height:'50%'}}>ClientList</div>
+        <div style={{height:'50%'}}><ClientList/></div>
       </div>
       <div className="basis-1/3 ">Allocation</div>
     </div>
