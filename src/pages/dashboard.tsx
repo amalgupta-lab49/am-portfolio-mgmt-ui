@@ -1,6 +1,7 @@
 import ClientList from "../components/dashboard/clientList";
 import { ClientRollUpCard } from "../components/dashboard/clientRollUp";
 import Performace from "../components/dashboard/performance";
+import SectorAllocation from "../components/dashboard/sectorAllocation";
 
 export default function Dashboard() {
   return <div className=" w-full px-4 flex flex-col gap-3 pt-3 ">
@@ -15,7 +16,7 @@ export default function Dashboard() {
         <div  style={{height:'50%'}}><Performace/></div>
         <div style={{height:'50%'}}><ClientList/></div>
       </div>
-      <div className="basis-1/3 ">Allocation</div>
+      <div className="basis-1/3 "><SectorAllocation/></div>
     </div>
   </div>
 }
