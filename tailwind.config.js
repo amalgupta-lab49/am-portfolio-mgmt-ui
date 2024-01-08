@@ -11,7 +11,7 @@ export default withMT({
     extend: {},
   },
   plugins: [
-    require('nightwind')
+   require('nightwind')
   ],
 })
 
