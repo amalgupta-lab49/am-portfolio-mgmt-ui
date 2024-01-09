@@ -79,7 +79,7 @@ export default function SectorAllocation() {
           },
           datalabels: {
             color: 'black',
-            formatter: (val, ctx) => (ctx?.chart?.data?.labels?.[ctx.dataIndex])
+            formatter: (_, ctx) => (ctx?.chart?.data?.labels?.[ctx.dataIndex])
           },
         }
       }} data={chartDataMarketCap} />,
@@ -93,7 +93,7 @@ export default function SectorAllocation() {
           },
           datalabels: {
             color: 'black',
-            formatter: (val, ctx) => (ctx?.chart?.data?.labels?.[ctx.dataIndex])
+            formatter: (_, ctx) => (ctx?.chart?.data?.labels?.[ctx.dataIndex])
           },
         }
       }} id="pie_mktcap" data={chartDataSectorAllocation} />,

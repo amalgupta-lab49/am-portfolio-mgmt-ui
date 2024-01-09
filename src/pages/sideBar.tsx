@@ -12,6 +12,7 @@ import {
   PowerIcon,
 } from "@heroicons/react/24/solid";
 import {  Link } from "react-router-dom";
+import nightwind from "nightwind/helper";
 
 export function SideBar() {
  
@@ -46,6 +47,9 @@ export function SideBar() {
             <PowerIcon className="h-5 w-5" />
           </ListItemPrefix>
           Log Out
+        </ListItem>
+        <ListItem>
+           <Button onClick={() => nightwind.toggle()}>Toggle</Button>
         </ListItem>
       </List>
     </Card>
