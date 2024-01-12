@@ -1,4 +1,4 @@
-
+import { useOutletContext } from "react-router-dom";
 import {
   Card,
   TabsBody,
@@ -9,35 +9,23 @@ import {
   Tab,
 } from "@material-tailwind/react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Pie } from 'react-chartjs-2';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { Bar, Pie } from 'react-chartjs-2';
 
-ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
+import { Theme } from "../../theme/types";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function SectorAllocation() {
+  const theme: Theme = useOutletContext();
+  
   const chartDataMarketCap = {
     labels: ['Information Technology', 'Consumer Discretionary', 'Communication Services',
       'Real Estate', 'Consumer Staples', 'Materials'],
     datasets: [
       {
         data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-        ],
-        borderWidth: 1,
+        backgroundColor: theme.colors.graph.backgroundColors,
+        borderColor: theme.colors.graph.borderColors
       },
     ],
   };
@@ -47,73 +35,72 @@ export default function SectorAllocation() {
     datasets: [
       {
         data: [12, 19, 30, 5, 20, 3],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-        ],
+        backgroundColor: theme.colors.graph.backgroundColors,
+        borderColor: theme.colors.graph.borderColors,
         borderWidth: 1
       }
     ],
   };
 
-  const data = [
+  const tabData = [
     {
       label: "Sector",
-      desc: <Pie id="pie_sector"  options={{
-        
-        plugins: {
-          legend: {
-            display: false
-          },
-          datalabels: {
-            color: 'black',
-            formatter: (_, ctx) => (ctx?.chart?.data?.labels?.[ctx.dataIndex])
-          },
-        }
-      }} data={chartDataMarketCap} />,
+      desc: <Pie
+        id="pie_sector"
+        data={chartDataMarketCap}
+        options={{
+          plugins: {
+            legend: {
+              position: "bottom",
+              labels: {
+                color: theme.colors.graph.font,
+                font: { size: 8 }
+              }
+            }
+          }
+        }}
+      />,
     },
     {
       label: "Market Cap",
-      desc: <Pie options={{
-        plugins: {
-          legend: {
-            display: false,
-          },
-          datalabels: {
-            color: 'black',
-            formatter: (_, ctx) => (ctx?.chart?.data?.labels?.[ctx.dataIndex])
-          },
-        }
-      }} id="pie_mktcap" data={chartDataSectorAllocation} />,
+      desc: <div className="h-80">
+        <Bar
+          id="pie_mktcap"
+          data={chartDataSectorAllocation}
+          options={{
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                ticks: { color: theme.colors.graph.font },
+                grid: { display: false }
+              },
+              y: {
+                ticks: { color: theme.colors.graph.font },
+                grid: { display: false }
+              }
+            },
+            plugins: {
+              legend: { display: false }
+            }
+          }} />
+      </div>,
     }
   ];
 
 
   return (
-    <Card className="rounded-none bg-opacity-60">
-      <CardBody className=" px-0 ">
-        <Tabs value={data[0].label}  >
-          <TabsHeader>
-            {data.map(({ label }) => (
-              <Tab key={label} value={label} className="">
+    <Card className="h-full rounded-none bg-opacity-20">
+      <CardBody className="">
+        <Tabs value={tabData[0].label}  >
+          <TabsHeader className="tab-header">
+            {tabData.map(({ label }) => (
+              <Tab key={label} value={label}>
                 {label}
               </Tab>
             ))}
           </TabsHeader>
           <TabsBody>
-            {data.map(({ label, desc }) => (
+            {tabData.map(({ label, desc }) => (
               <TabPanel key={label} value={label}>
                 {desc}
               </TabPanel>

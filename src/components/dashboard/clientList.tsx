@@ -5,6 +5,8 @@ import {
   Chip,
   Avatar,
 } from "@material-tailwind/react";
+import { ArrowDownIcon, ArrowUpIcon } from "@heroicons/react/24/solid";
+
 const TABLE_HEAD = ["Client", "Portfolio", "% Change", "Investment"];
 const TABLE_ROWS = [
   {
@@ -56,21 +58,14 @@ const TABLE_ROWS = [
 
 export default function ClientList() {
   return (
-    <Card className="rounded-none max-h-full  bg-opacity-60" >
-      <CardBody className="overflow-auto px-0">
+    <Card className="rounded-none max-h-full bg-opacity-20" >
+      <CardBody className="overflow-auto p-0">
         <table className="text-left w-full">
           <thead>
             <tr>
               {TABLE_HEAD.map((head) => (
-                <th
-                  key={head}
-                  className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4"
-                >
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-normal leading-none opacity-70"
-                  >
+                <th key={head} className="p-4">
+                  <Typography variant="small" className="leading-none opacity-70">
                     {head}
                   </Typography>
                 </th>
@@ -79,76 +74,49 @@ export default function ClientList() {
           </thead>
           <tbody>
             {TABLE_ROWS.map(
-              ({ img, name, email, job, org, online, date }, index) => {
-                const isLast = index === TABLE_ROWS.length - 1;
-                const classes = isLast
-                  ? "p-4"
-                  : "p-4 border-b border-blue-gray-50";
-
-                return (
+              ({ img, name, email, job, org, online, date }) => (
                   <tr key={name}>
-                    <td className={classes}>
-                      <div className="flex items-center gap-3">
+                    <td className="p-4">
+                      <div className="flex items-center gap-2">
                         <Avatar src={img} alt={name} size="sm" />
                         <div className="flex flex-col">
-                          <Typography
-                            variant="small"
-                            color="blue-gray"
-                            className="font-normal"
-                          >
+                          <Typography variant="small">
                             {name}
                           </Typography>
-                          <Typography
-                            variant="small"
-                            color="blue-gray"
-                            className="font-normal opacity-70"
-                          >
+                          <Typography variant="small" className="opacity-70">
                             {email}
                           </Typography>
                         </div>
                       </div>
                     </td>
-                    <td className={classes}>
+                    <td className="p-4">
                       <div className="flex flex-col">
-                        <Typography
-                          variant="small"
-                          color="blue-gray"
-                          className="font-normal"
-                        >
+                        <Typography variant="small">
                           {job}
                         </Typography>
-                        <Typography
-                          variant="small"
-                          color="blue-gray"
-                          className="font-normal opacity-70"
-                        >
+                        <Typography variant="small" className="opacity-70">
                           {org}
                         </Typography>
                       </div>
                     </td>
-                    <td className={classes}>
+                    <td className="p-4">
                       <div className="w-max">
                         <Chip
                           variant="ghost"
-                          size="sm"
-                          value={online ? "5%" : "-5%"}
+                          size="md"
+                          value="5%"
                           color={online ? "green" : "red"}
+                          icon={online ? <ArrowUpIcon /> : <ArrowDownIcon />}
                         />
                       </div>
                     </td>
-                    <td className={classes}>
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="font-normal"
-                      >
+                    <td className="p-4">
+                      <Typography variant="small">
                         {date}
                       </Typography>
                     </td>
-
                   </tr>
-                );
-              },
+                ),
             )}
           </tbody>
         </table>

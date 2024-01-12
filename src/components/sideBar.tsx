@@ -1,27 +1,31 @@
+import { ReactNode } from "react";
+import { Link } from "react-router-dom";
 import {
   Card,
   Typography,
   List,
   ListItem,
-  ListItemPrefix,
-  Button
+  ListItemPrefix
 } from "@material-tailwind/react";
 import {
   UserCircleIcon,
   InboxIcon,
   PowerIcon,
 } from "@heroicons/react/24/solid";
-import {  Link } from "react-router-dom";
 
-export function SideBar() {
+interface Props {
+  children?: ReactNode
+}
+
+export function SideBar({ children }: Props) {
   return (
-    <Card className="h-[calc(100vh)] shadow-2xl bg-opacity-60 rounded-none">
-      <div className="mb-2 p-4">
-        <Typography variant="h5" color="blue-gray">
+    <Card className="h-[calc(100vh)] shadow-2xl bg-opacity-40 rounded-none">
+      <div className="mb-2 p-4 sidebar-font">
+        <Typography variant="h5">
           Sidebar
         </Typography>
       </div>
-      <List>
+      <List className="sidebar-font">
         <ListItem>
           <ListItemPrefix>
             <InboxIcon className="h-5 w-5" />
@@ -47,6 +51,7 @@ export function SideBar() {
           Log Out
         </ListItem>
       </List>
+      {children}
     </Card>
   );
 }

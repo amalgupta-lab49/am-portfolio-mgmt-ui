@@ -1,0 +1,42 @@
+{
+    "name": "green",
+    "baseColor": "linear-gradient(to bottom right, #d9f99d, #15803d)",
+    "colors": {
+        "baseBackground": "linear-gradient(to bottom right, #d9f99d, #15803d)",
+        "font": "#f7fee7",
+        "divider": "#f7fee7",
+        "tab": {
+            "header": "#d9f99d",
+            "font": "#15803d"
+        },
+        "table": {
+            "header": "#d9f99d",
+            "headerFont": "#15803d",
+            "rowFont": "#f7fee7"
+        },
+        "sidebar": {
+            "font": "#15803d",
+            "backgroundHover": "#f7fee7"
+        },
+        "graph": {
+            "font": "#f7fee7",
+            "gridAxis": "#d9f99d",
+            "borderColors": [
+                "rgb(29, 78, 216)",
+                "rgb(239, 68, 68)",
+                "rgb(253, 224, 71)",
+                "rgb(147, 51, 234)",
+                "rgb(236, 72, 153)",
+                "rgb(245, 158, 11)"
+            ],
+            "backgroundColors": [
+                "rgba(29, 78, 216, 0.4)",
+                "rgba(239, 68, 68, 0.4)",
+                "rgba(253, 224, 71, 0.4)",
+                "rgba(147, 51, 234, 0.4)",
+                "rgba(236, 72, 153, 0.4)",
+                "rgba(245, 158, 11, 0.4)"
+            ]
+        }
+    }
+}

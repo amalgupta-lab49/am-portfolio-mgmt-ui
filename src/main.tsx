@@ -6,8 +6,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Dashboard from './pages/dashboard';
-import App from './app';
+import App from './App';
 import './main.css';
+import themes from './theme/schema';
+import { setToLocalStorage } from './utils/localStorage';
 
 const router = createBrowserRouter([
   {
@@ -34,13 +36,20 @@ const router = createBrowserRouter([
   }
 ]);
 
+const Main = () => {
+  setToLocalStorage('themes', themes);
+  return (
+    <StrictMode>
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </StrictMode>
+  )
+}
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <StrictMode>
-    <ThemeProvider>
-      <RouterProvider router={router} />
-    </ThemeProvider>
-  </StrictMode>
+  <Main />
 );
