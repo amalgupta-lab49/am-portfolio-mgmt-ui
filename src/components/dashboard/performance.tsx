@@ -16,6 +16,7 @@ const data = {
       label: "First dataset",
       data: [33, 53, 85, 41, 44, 65],
       fill: true,
+      borderWidth: 2,
       backgroundColor: "rgba(147, 51, 234, 0.4)",
       borderColor: "rgb(147, 51, 234)"
     },
@@ -23,6 +24,7 @@ const data = {
       label: "Second dataset",
       data: [33, 25, 35, 51, 54, 76],
       fill: true,
+      borderWidth: 2,
       backgroundColor: "rgba(239, 68, 68, 0.4)",
       borderColor: "rgb(239, 68, 68)"
     }
@@ -68,7 +70,7 @@ export default function Performace() {
   }, [theme])
 
   return (
-    <Card className="rounded-none h-full bg-opacity-20">
+    <Card className="rounded-none h-full card-background">
       <CardBody>
         <Line id="line" width={500} options={options} data={graphData} className="performance_chart" />
       </CardBody>

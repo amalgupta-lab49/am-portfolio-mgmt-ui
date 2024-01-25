@@ -19,7 +19,7 @@ interface Props {
 
 export function SideBar({ children }: Props) {
   return (
-    <Card className="h-[calc(100vh)] shadow-2xl bg-opacity-40 rounded-none">
+    <Card className="h-[calc(100vh)] shadow-2xl card-background rounded-none">
       <div className="mb-2 p-4 sidebar-font">
         <Typography variant="h5">
           Sidebar

@@ -58,7 +58,7 @@ const TABLE_ROWS = [
 
 export default function ClientList() {
   return (
-    <Card className="rounded-none max-h-full bg-opacity-20" >
+    <Card className="rounded-none max-h-full card-background" >
       <CardBody className="overflow-auto p-0">
         <table className="text-left w-full">
           <thead>
@@ -102,7 +102,7 @@ export default function ClientList() {
                     <td className="p-4">
                       <div className="w-max">
                         <Chip
-                          variant="ghost"
+                          variant="gradient"
                           size="md"
                           value="5%"
                           color={online ? "green" : "red"}

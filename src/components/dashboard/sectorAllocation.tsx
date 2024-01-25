@@ -89,10 +89,13 @@ export default function SectorAllocation() {
 
 
   return (
-    <Card className="h-full rounded-none bg-opacity-20">
-      <CardBody className="">
+    <Card className="h-full rounded-none card-background">
+      <CardBody>
         <Tabs value={tabData[0].label}  >
-          <TabsHeader className="tab-header">
+          <TabsHeader 
+            className="tab-header"
+            indicatorProps={{ className: "selected-tab" }}
+          >
             {tabData.map(({ label }) => (
               <Tab key={label} value={label}>
                 {label}
