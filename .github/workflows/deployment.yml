@@ -1,0 +1,27 @@
+name: Node.js CI
+
+on:
+    pull_request:
+        branches: [main]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Run CI command
+              run: npm ci
+
+            - name: Install Vercel CLI
+              run: npm install --global vercel@latest
+
+            - name: Pull Vercel Environment Information
+              run: vercel pull --yes --environment=production --token=K57XgN0Ln0UyO5hlhD8Jdmx0
+
+            - name: Build Project Artifacts
+              run: vercel build --prod --token=K57XgN0Ln0UyO5hlhD8Jdmx0
+
+            - name: Deploy Project Artifacts to Vercel
+              run: vercel deploy --prod --prebuilt --token=K57XgN0Ln0UyO5hlhD8Jdmx0
