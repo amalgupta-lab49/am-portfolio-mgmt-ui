@@ -1,28 +1,28 @@
 {
   "plain": {
-    "name": "greenPlain",
-    "baseColor": "#38CA38",
+    "name": "darkPlain",
+    "baseColor": "#1A212B",
     "colors": {
-      "baseBackground": "#38CA38",
-      "cardBackground": "#A1DFA1",
-      "font": "#185818",
+      "baseBackground": "#1A212B",
+      "cardBackground": "#2B3038",
+      "font": "#F6F6F6",
       "divider": "#F6F6F6",
       "tab": {
-        "header": "#38CA38",
-        "font": "#185818"
+        "header": "#1A212B",
+        "font": "#F6F6F6"
       },
       "table": {
-        "header": "#E2F4E2",
-        "headerFont": "#185818",
-        "rowFont": "#185818"
+        "header": "#AAABAC",
+        "headerFont": "#1A212B",
+        "rowFont": "#F6F6F6"
       },
       "sidebar": {
-        "font": "#185818",
-        "backgroundHover": "#38CA38"
+        "font": "#F6F6F6",
+        "backgroundHover": "#1A212B"
       },
       "graph": {
-        "font": "#185818",
-        "gridAxis": "#E2F4E2",
+        "font": "#F6F6F6",
+        "gridAxis": "#AAABAC",
         "borderColors": [
           "rgb(0, 128, 128)",
           "rgb(160, 32, 240)",
@@ -45,29 +45,29 @@
     }
   },
   "gradient": {
-    "name": "greenGradient",
-    "baseColor": "linear-gradient(to bottom right, #E2F4E2, #185818)",
+    "name": "darkGradient",
+    "baseColor": "linear-gradient(to bottom right, #C5C6C7, #1A212B)",
     "colors": {
-      "baseBackground": "linear-gradient(to bottom right, #E2F4E2, #185818)",
-      "cardBackground": "rgba(226, 244, 226, 0.3)",
-      "font": "#185818",
-      "divider": "#185818",
+      "baseBackground": "linear-gradient(to bottom right, #C5C6C7, #1A212B)",
+      "cardBackground": "rgba(246, 246, 246, 0.3)",
+      "font": "#1A212B",
+      "divider": "#FEF2F2",
       "tab": {
-        "header": "#A1DFA1",
-        "font": "#185818"
+        "header": "#E2E2E2",
+        "font": "#1A212B"
       },
       "table": {
-        "header": "#A1DFA1",
-        "headerFont": "#185818",
-        "rowFont": "#185818"
+        "header": "#E2E2E2",
+        "headerFont": "#1A212B",
+        "rowFont": "#1A212B"
       },
       "sidebar": {
-        "font": "#185818",
-        "backgroundHover": "#E2F4E2"
+        "font": "#1A212B",
+        "backgroundHover": "#E2E2E2"
       },
       "graph": {
-        "font": "#185818",
-        "gridAxis": "#2C9F2C",
+        "font": "#1A212B",
+        "gridAxis": "#E2E2E2",
         "borderColors": [
           "rgb(0, 128, 128)",
           "rgb(160, 32, 240)",

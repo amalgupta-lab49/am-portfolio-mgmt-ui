@@ -8,6 +8,10 @@ export const GlobalStyles = createGlobalStyle`
         background: ${({ theme }) => theme.colors.baseBackground};
     }
 
+    .card-background {
+        background: ${({ theme }) => theme.colors.cardBackground};
+    }
+
     .font-color {
         color: ${({ theme }) => theme.colors.font};
     }
@@ -18,22 +22,22 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     .tab-header {
-        background: ${({ theme }) => theme.colors.tab.header};
+        background: transparent;
         li {
             font-weight: bold;
             color: ${({ theme }) => theme.colors.tab.font};
         }
-        .selected{
-            background: blue;
+        .selected-tab {
+            background: ${({ theme }) => theme.colors.tab.header};
         }
     }
 
     .sidebar-font {
         color: ${({ theme }) => theme.colors.sidebar.font};
-        :hover {
-            background: ${({ theme }) => theme.colors.sidebar.backgroundHover};
-            color: ${({ theme }) => theme.colors.sidebar.font};
-        }
+    }
+    nav.sidebar-font div:hover {
+        background: ${({ theme }) => theme.colors.sidebar.backgroundHover};
+        color: ${({ theme }) => theme.colors.sidebar.font};
     }
 
     table {
@@ -45,7 +49,7 @@ export const GlobalStyles = createGlobalStyle`
             background: ${({ theme }) => theme.colors.table.header};
             color: ${({ theme }) => theme.colors.table.headerFont};
             p { 
-                font-weight: bold;
+                font-weight: bold !important;
             }
         }
         td {
