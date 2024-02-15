@@ -48,7 +48,7 @@ export function SideBar({ children }: Props) {
           <ListItemPrefix>
             <PowerIcon className="h-5 w-5" />
           </ListItemPrefix>
-          Log Out
+          <Link to={`login`}>Log Out</Link>
         </ListItem>
       </List>
       {children}
