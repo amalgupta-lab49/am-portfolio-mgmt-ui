@@ -1,0 +1,39 @@
+.login-app {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a212b;
+  color: #f6f6f6;
+}
+
+.login-container {
+  padding: 30px;
+  background-color: #2b3038;
+  border-radius: 0.5rem;
+}
+
+.primary-btn {
+  background-color: #e92626;
+}
+
+.outlined-btn {
+  color: #f6f6f6;
+  border-color: #f6f6f6;
+}
+
+.text-btn {
+  color: #8f9092;
+}
+
+.text-btn:hover {
+  color: #f6f6f6;
+}
+
+.text-btn-icon {
+  fill: #8f9092;
+}
+
+.text-btn:hover .text-btn-icon {
+  fill: #f6f6f6;
+}

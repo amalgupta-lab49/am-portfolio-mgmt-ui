@@ -1,24 +1,23 @@
-import { StrictMode } from 'react';
-import * as ReactDOM from 'react-dom/client';
+import { StrictMode } from "react";
+import * as ReactDOM from "react-dom/client";
 import { ThemeProvider } from "@material-tailwind/react";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import Dashboard from './pages/dashboard';
-import App from './App';
-import './main.css';
-import themes from './theme/schema';
-import { setToLocalStorage } from './utils/localStorage';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import Dashboard from "./pages/dashboard";
+import App from "./App";
+import "./main.css";
+import themes from "./theme/schema";
+import { setToLocalStorage } from "./utils/localStorage";
+import Login from "./pages/login";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
-    children:[
+    element: <App />,
+    children: [
       {
         path: "/",
-        element: <Dashboard/>,
+        element: <Dashboard />,
       },
       {
         path: "portfolio",
@@ -27,29 +26,27 @@ const router = createBrowserRouter([
       {
         path: "clients",
         element: <div>Clients</div>,
-      }
-    ]
+      },
+    ],
   },
   {
     path: "/login",
-    element: <div>Login Page</div>
-  }
+    element: <Login />,
+  },
 ]);
 
 const Main = () => {
-  setToLocalStorage('themes', themes);
+  setToLocalStorage("themes", themes);
   return (
     <StrictMode>
       <ThemeProvider>
         <RouterProvider router={router} />
       </ThemeProvider>
     </StrictMode>
-  )
-}
+  );
+};
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
-root.render(
-  <Main />
-);
+root.render(<Main />);
